@@ -1863,7 +1863,6 @@
         <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value="e89b13dc-182b-4ac1-818e-0c69f7a2c0f7">
   <input type="hidden" name="subject" value="New Contact Form Submission - Raleigh Home Organizers">
-  <input type="hidden" name="redirect" value="https://raleighhomeorganizers.com/#contact">
 
   <div class="form-field">
     <label for="name">Your name <span style="color: var(--peri-500);">*</span></label>
@@ -1930,6 +1929,8 @@
   </p>
 
   <button type="submit" class="btn btn-lg form-submit">Submit</button>
+
+  <p id="formStatus" role="status" aria-live="polite" style="display: none; margin-top: 1rem; font-weight: 600; text-align: center;"></p>
 </form>
       </div>
     </div>
@@ -2700,7 +2701,46 @@
   /* ================================================================
      FORM SUBMIT
      ================================================================ */
-  
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = contactForm.querySelector('.form-submit');
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      formStatus.style.display = 'none';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm)
+        });
+        const data = await response.json();
+        if (response.ok && data.success) {
+          formStatus.textContent = 'Form successfully submitted';
+          formStatus.style.color = 'var(--sage-700)';
+          formStatus.style.display = 'block';
+          contactForm.reset();
+        } else {
+          formStatus.textContent = data.message || 'Something went wrong. Please try again.';
+          formStatus.style.color = 'var(--peri-700)';
+          formStatus.style.display = 'block';
+        }
+      } catch (err) {
+        formStatus.textContent = 'Something went wrong. Please try again.';
+        formStatus.style.color = 'var(--peri-700)';
+        formStatus.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      }
+    });
+  }
+
+
   /* ================================================================
      YEAR
      ================================================================ */
