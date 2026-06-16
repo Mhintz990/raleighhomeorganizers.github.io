@@ -1860,7 +1860,13 @@
         </div>
 
         <!-- Form -->
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" novalidate action="https://api.web3forms.com/submit" method="POST">
+          <!-- Required: your access key (hidden from visitors) -->
+          <input type="hidden" name="access_key" value="e89b13dc-182b-4ac1-818e-0c69f7a2c0f7">
+
+          <!-- Optional but recommended: custom email subject line -->
+          <input type="hidden" name="subject" value="New Contact Form Submission - Raleigh Home Organizers">
+
           <div class="form-field">
             <label for="name">Your name <span style="color: var(--peri-500);">*</span></label>
             <input type="text" id="name" name="name" required />
