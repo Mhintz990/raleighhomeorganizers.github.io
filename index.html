@@ -1860,87 +1860,77 @@
         </div>
 
         <!-- Form -->
-        <form class="contact-form" id="contactForm" novalidate action="https://api.web3forms.com/submit" method="POST">
-          <!-- Required: your access key (hidden from visitors) -->
-          <input type="hidden" name="access_key" value="e89b13dc-182b-4ac1-818e-0c69f7a2c0f7">
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="e89b13dc-182b-4ac1-818e-0c69f7a2c0f7">
+  <input type="hidden" name="subject" value="New Contact Form Submission - Raleigh Home Organizers">
+  <input type="hidden" name="redirect" value="https://raleighhomeorganizers.com/#contact">
 
-          <!-- Optional but recommended: custom email subject line -->
-          <input type="hidden" name="subject" value="New Contact Form Submission - Raleigh Home Organizers">
+  <div class="form-field">
+    <label for="name">Your name <span style="color: var(--peri-500);">*</span></label>
+    <input type="text" id="name" name="name" required />
+  </div>
 
-          <div class="form-field">
-            <label for="name">Your name <span style="color: var(--peri-500);">*</span></label>
-            <input type="text" id="name" name="name" required />
-          </div>
+  <div class="form-field">
+    <label for="email">Email <span style="color: var(--peri-500);">*</span></label>
+    <input type="email" id="email" name="email" required />
+  </div>
 
-          <div class="form-field">
-            <label for="email">Email <span style="color: var(--peri-500);">*</span></label>
-            <input type="email" id="email" name="email" required />
-          </div>
+  <div class="form-field">
+    <label for="zipcode">Your current zip code <span style="color: var(--peri-500);">*</span></label>
+    <input type="text" id="zipcode" name="zipcode" required />
+  </div>
 
-          <div class="form-field">
-            <label for="zipcode">Your current zip code <span style="color: var(--peri-500);">*</span></label>
-            <input type="text" id="zipcode" name="zipcode" required />
-          </div>
+  <div class="form-field">
+    <label for="phone">Cell phone <span style="color: var(--peri-500);">*</span></label>
+    <input type="tel" id="phone" name="phone" required />
+  </div>
 
-          <div class="form-field">
-            <label for="phone">Cell phone <span style="color: var(--peri-500);">*</span></label>
-            <input type="tel" id="phone" name="phone" required />
-          </div>
+  <div class="form-field">
+    <label for="homePhone">Home phone <span style="color: var(--peri-500);">*</span></label>
+    <input type="tel" id="homePhone" name="homePhone" required />
+  </div>
 
-          <div class="form-field">
-            <label for="homePhone">Home phone <span style="color: var(--peri-500);">*</span></label>
-            <input type="tel" id="homePhone" name="homePhone" required />
-          </div>
+  <div class="form-field">
+    <label for="bestContact">Best way to reach you <span style="color: var(--peri-500);">*</span></label>
+    <select id="bestContact" name="bestContact" required>
+      <option value="">— Select one —</option>
+      <option value="email">Email</option>
+      <option value="cell">Cell phone</option>
+      <option value="home">Home phone</option>
+    </select>
+  </div>
 
-          <div class="form-field">
-            <label for="bestContact">Best way to reach you <span style="color: var(--peri-500);">*</span></label>
-            <select id="bestContact" name="bestContact" required>
-              <option value="">— Select one —</option>
-              <option value="email">Email</option>
-              <option value="cell">Cell phone</option>
-              <option value="home">Home phone</option>
-            </select>
-          </div>
+  <div class="form-field">
+    <label for="notes">Tell me about your project. What rooms/spaces do you need help with? <span style="color: var(--peri-500);">*</span></label>
+    <textarea id="notes" name="notes" placeholder="e.g. kitchen, primary bedroom, garage, the whole home — whatever's on your list." rows="3" required></textarea>
+  </div>
 
-          <div class="form-field">
-            <label for="notes">Tell me about your project. What rooms/spaces do you need help with? <span style="color: var(--peri-500);">*</span></label>
-            <textarea id="notes" name="notes" placeholder="e.g. kitchen, primary bedroom, garage, the whole home — whatever's on your list." rows="3" required></textarea>
-          </div>
+  <div class="form-field">
+    <label for="package">What package are you interested in? <span style="color: var(--peri-500);">*</span></label>
+    <select id="package" name="package" required>
+      <option value="">— Select one —</option>
+      <option value="reset">The Reset</option>
+      <option value="refresh">The Refresh</option>
+      <option value="transformation">The Transformation</option>
+      <option value="unsure">Not sure yet</option>
+    </select>
+  </div>
 
-          <div class="form-field">
-            <label for="package">What package are you interested in? <span style="color: var(--peri-500);">*</span></label>
-            <select id="package" name="package" required>
-              <option value="">— Select one —</option>
-              <option value="reset">The Reset</option>
-              <option value="refresh">The Refresh</option>
-              <option value="transformation">The Transformation</option>
-              <option value="unsure">Not sure yet</option>
-            </select>
-          </div>
+  <div class="form-field">
+    <label for="timeline">Do you have a timeline in mind? <span style="color: var(--peri-500);">*</span></label>
+    <input type="text" id="timeline" name="timeline" placeholder="e.g. no rush, moving in 4 weeks, mid-October" required />
+  </div>
 
-          <div class="form-field">
-            <label for="timeline">Do you have a timeline in mind? <span style="color: var(--peri-500);">*</span></label>
-            <input type="text" id="timeline" name="timeline" placeholder="e.g. no rush, moving in 4 weeks, mid-October" required />
-          </div>
+  <div class="form-field" style="background: var(--bg-soft); border-radius: var(--r-md); padding: 1rem 1.15rem;">
+    <p style="font-size: 0.92rem; color: var(--ink-mute); margin: 0;">📷 Want to share photos of your space? Email them to <strong>morgan@raleighhomeorganizers.com</strong> after submitting — it helps get a better scope before we chat!</p>
+  </div>
 
-          <div class="form-field">
-            <label for="photos">Upload photos of your space <span style="color: var(--ink-mute); font-weight: 400; font-size: 0.9em;">(optional)</span></label>
-            <p style="font-size: 0.92rem; color: var(--ink-mute); margin: 0.25rem 0 0.6rem;">Got a few photos of the spaces you need help with? Feel free to share them — it helps me get a better scope of the project before we chat.</p>
-            <input type="file" id="photos" name="photos" accept="image/*" multiple style="display: block; width: 100%; padding: 0.65rem 0.9rem; border: 1.5px solid var(--peri-100); border-radius: var(--r-sm); background: var(--bg); font-family: inherit; font-size: 0.97rem; color: var(--ink-soft); cursor: pointer;" />
-          </div>
+  <p style="font-size: 0.92rem; color: var(--ink-mute); line-height: 1.55; margin: 0.5rem 0 1.25rem; padding: 1rem 1.15rem; background: var(--bg-soft); border-radius: var(--r-md);">
+    By submitting this form, you consent to Raleigh Home Organizers reaching out to you using the contact information you've provided.
+  </p>
 
-
-
-          <p style="font-size: 0.92rem; color: var(--ink-mute); line-height: 1.55; margin: 0.5rem 0 1.25rem; padding: 1rem 1.15rem; background: var(--bg-soft); border-radius: var(--r-md);">
-            By submitting this form, you consent to Raleigh Home Organizers reaching out to you using the contact information you've provided.
-          </p>
-
-          <button type="submit" class="btn btn-lg form-submit">Submit</button>
-
-          <div id="formSuccess" style="display: none; margin-top: 1.5rem; padding: 1.25rem; background: var(--bg-sage); color: var(--sage-700); border-radius: var(--r-md); text-align: center; font-weight: 500;">
-            Thank you! Your message has been received. Morgan will be in touch within 24 hours.
-          </div>
-        </form>
+  <button type="submit" class="btn btn-lg form-submit">Submit</button>
+</form>
       </div>
     </div>
   </section>
@@ -2710,28 +2700,7 @@
   /* ================================================================
      FORM SUBMIT
      ================================================================ */
-  document.getElementById('contactForm').addEventListener('submit', e => {
-    e.preventDefault();
-    // Basic validation: required fields
-    const requiredFields = ['name', 'email', 'zipcode', 'phone', 'homePhone', 'bestContact', 'notes', 'package', 'timeline'];
-    let valid = true;
-    requiredFields.forEach(name => {
-      const input = e.target.elements[name];
-      if (!input.value.trim()) {
-        input.style.borderColor = '#c46b6b';
-        valid = false;
-      } else {
-        input.style.borderColor = '';
-      }
-    });
-    if (!valid) return;
-
-    // In a real deployment, replace this with a fetch to your form handler / email service
-    document.getElementById('formSuccess').style.display = 'block';
-    document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    e.target.reset();
-  });
-
+  
   /* ================================================================
      YEAR
      ================================================================ */
